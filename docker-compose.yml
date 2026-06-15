@@ -29,7 +29,7 @@ services:
     container_name: hotel_api
     environment:
       # Variables de entorno (se pueden sobrescribir aquí)
-      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Server=mysql;Port=3306;Database=Hotel;User=root;Password=Dev!123;AllowPublicKeyRetrieval=True;SslMode=None;"
     ports:
       - "8080:80"
