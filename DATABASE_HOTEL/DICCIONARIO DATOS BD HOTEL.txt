@@ -1,0 +1,25 @@
+DICCIONARIO DE DATOS DE LA BD HOTEL  (TABLAS Y ATRIBUTOS DE LA BD):
+
+
+Huespedes = {@IdHuesped + Nombre + Apellido + Dni + Telefono + Email + Direccion + FechaRegistro}
+
+Habitaciones = { @IdHabitacion + Numero + Piso + TipoHabitacion [Simple|Doble|Triple|Suite] + Capacidad + PrecioNocheBase + EstadoHabitacion[Disponible|Reservada|Ocupada|En limpieza|Fuera de servicio] }
+
+Reservas = {@IdReserva + IdHuesped(fk) + IdHabitacion(fk) + FechaReserva + FechaIngreso + FechaEgreso + CantidadPersonas + PrecioNocheReservado + EstadoReserva [Pendiente|Confirmada|Cancelada|Finalizada] + Observaciones}
+
+Estadias = {@IdEstadia + IdReserva(fk/null) + IdHuesped(fk) + IdHabitacion(fk) + FechaIngreso + FechaEgreso(null) + CantidadPersonas + PrecioNocheAplicado + Observaciones}
+
+Servicios = {@IdServicio + NombreServicio [WiFi|Lavanderia|Cochera|Desayuno|Almuerzo|Cena|Piscina|Minibar] + PrecioBase}
+
+ServiciosEstadias = {@IdServicio(fk) + @IdEstadia(fk) + PrecioAplicado}
+
+Pagos = {@IdPago + IdEstadia(fk) + FechaPago + Monto + MedioPago [Efectivo|Tarjeta|Transferencia|MercadoPago] + Observaciones}
+
+Huespedes-Estadias = {@IdHuesped(fk) + @IdEstadia(fk)}
+
+
+
+
+
+
+
