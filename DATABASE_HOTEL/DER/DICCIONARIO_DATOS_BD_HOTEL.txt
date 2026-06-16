@@ -1,0 +1,49 @@
+DICCIONARIO DE DATOS DE LA BD SIMPLIFICADA CON ATRIBUTOS ENUM  (TABLAS Y ATRIBUTOS DE LA BD):
+
+
+Huespedes = [@IdHuesped + Nombre + Apellido + Dni + Telefono + Email + Direccion + FechaRegistro]
+
+Habitaciones = [@IdHabitacion + Numero + Piso + TipoHabitacion(enum) + Capacidad + PrecioNocheBase + EstadoHabitacion(enum)]
+
+Reservas = [@IdReserva + IdHuesped(fk) + IdHabitacion(fk) + FechaReserva + FechaIngreso + FechaEgreso + CantidadPersonas + PrecioNocheReservado + EstadoReserva(enum) + Observaciones]
+
+Estadias = [@IdEstadia + IdReserva(fk/null) + IdHuesped(fk) + IdHabitacion(fk) + FechaIngreso + FechaEgreso(null) + CantidadPersonas + PrecioNocheAplicado + Observaciones]
+
+Servicios = [@IdServicio + NombreServicio + PrecioBase]
+
+ServiciosEstadias = [@IdServicio(fk) + @IdEstadia(fk) + PrecioAplicado]
+
+Pagos = [@IdPago + IdEstadia(fk) + FechaPago + Monto + MedioPago(enum) + Observaciones]
+
+Huespedes-Estadias = [@IdHuesped(fk) + @IdEstadia(fk)]
+
+
+
+
+CAMPOS ENUM UTILIZADOS EN LAS TABLAS:
+
+
+
+TipoHabitacion(enum) = [Simple| Doble| Triple| Suite]
+
+EstadoHabitacion(enum) = [Disponible| Reservada| Ocupada| En limpieza| Fuera de servicio]
+
+EstadoReserva(enum) = [Pendiente| Confirmada| Cancelada| Finalizada]
+
+MedioPago(enum) = [Efectivo| Tarjeta| Transferencia| MercadoPago]
+
+NombreServicio(enum) = [WiFi| Lavanderia| Cochera| Desayuno| Almuerzo| Cena| Piscina| Minibar]
+
+
+
+
+
+MEDIANTE EL USO DE CAMPOS ENUM SE ELIMINARON DE LA TABLA NORMALIZADA ORIGINAL 4 TABLAS:
+
+TiposHabitacion
+
+EstadosHabitacion
+
+EstadosReserva
+
+MediosPago
