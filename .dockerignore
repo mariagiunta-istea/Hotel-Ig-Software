@@ -1,0 +1,12 @@
+.git
+.gitignore
+.vs
+.vscode
+bin
+obj
+*.dll
+*.exe
+*.pdb
+.DS_Store
+node_modules
+npm-debug.log
